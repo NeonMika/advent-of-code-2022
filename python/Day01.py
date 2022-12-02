@@ -1,7 +1,7 @@
 import Helper
 
 
-def day01_star01(test):
+def star01(test):
     data = Helper.readData(
         day=1,
         star=-1 if test else 1,
@@ -12,7 +12,7 @@ def day01_star01(test):
     print('maximum:', maximum)
 
 
-def day01_star02(test):
+def star02(test):
     data = Helper.readData(
         day=1,
         star=-2 if test else 2,
@@ -23,7 +23,7 @@ def day01_star02(test):
     print('sumTopThree:', sumTopThree)
 
 
-day01_star01(True)
-day01_star01(False)
-day01_star02(True)
-day01_star02(False)
+star01(True)
+star01(False)
+star02(True)
+star02(False)

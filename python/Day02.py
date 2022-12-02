@@ -65,7 +65,7 @@ class Entry:
         return self.my.score + (6 if is_win else (3 if is_draw else 0))
 
 
-def day01_star01(test):
+def star01(test):
     def line_converter(line: str):
         left, right = line.split()
         return Entry(MOVES_BY_LEFT[left], MOVES_BY_RIGHT_STAR1[right])
@@ -73,7 +73,7 @@ def day01_star01(test):
     print(sum(entry.score() for entry in data))
 
 
-def day01_star02(test):
+def star02(test):
     def line_converter(line: str):
         left, right = line.split()
         left_move = MOVES_BY_LEFT[left]
@@ -83,7 +83,7 @@ def day01_star02(test):
     print(sum(entry.score() for entry in data))
 
 
-day01_star01(True)
-day01_star01(False)
-day01_star02(True)
-day01_star02(False)
+star01(True)
+star01(False)
+star02(True)
+star02(False)
