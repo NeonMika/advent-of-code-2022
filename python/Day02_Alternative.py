@@ -36,23 +36,27 @@ M2 = {
 # X means you need to lose, Y means you need to end the round in a draw, and Z means you need to win.
 
 
-def day01_star01(test):
-    data = Helper.readData(day=2,
-                           star=-1 if test else 1,
-                           text_converter=lambda text: text.replace(A, R).replace(X, R).replace(B, P).replace(Y, P).replace(C, S).replace(Z, S),
-                           line_converter=lambda line: M[tuple(line.split())])
+def star01(test):
+    data = Helper.readData(
+        day=2,
+        star=-1 if test else 1,
+        text_converter=lambda text: text.replace(A, R).replace(X, R).replace(B, P).replace(Y, P).replace(C, S).replace(Z, S),
+        line_converter=lambda line: M[tuple(line.split())]
+    )
     print(sum(data))
 
 
-def day01_star02(test):
-    data = Helper.readData(day=2,
-                           star=-1 if test else 1,
-                           text_converter=lambda text: text.replace(A, R).replace(B, P).replace(C, S).replace(X, LOSE).replace(Y, DRAW).replace(Z, WIN),
-                           line_converter=lambda line: M2[tuple(line.split())])
+def star02(test):
+    data = Helper.readData(
+        day=2,
+        star=-1 if test else 1,
+        text_converter=lambda text: text.replace(A, R).replace(B, P).replace(C, S).replace(X, LOSE).replace(Y, DRAW).replace(Z, WIN),
+        line_converter=lambda line: M2[tuple(line.split())]
+    )
     print(sum(data))
 
 
-day01_star01(True)
-day01_star01(False)
-day01_star02(True)
-day01_star02(False)
+star01(True)
+star01(False)
+star02(True)
+star02(False)
