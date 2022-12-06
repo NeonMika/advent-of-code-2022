@@ -4,11 +4,10 @@ import itertools
 def readData(day: int,
              star: int,
              text_converter=lambda x: x,
-             text_splitting=lambda x: str.split(x, sep='\n'),
              line_converter=str.split,
              list_converter=lambda x: x):
     with open(f'data/{day:02}_{starToNr(star)}.txt') as f:
-        return list_converter([line_converter(x) for x in text_splitting(text_converter(f.read()))])
+        return list_converter([line_converter(x) for x in str.split(text_converter(f.read()), sep='\n')])
 
 
 def starToNr(star: int):
