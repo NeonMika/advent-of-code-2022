@@ -3,8 +3,8 @@ import Helper
 
 
 def str2ranges(str):
-    l0, l1, r0, r1 = re.findall(r"(\d+)-(\d+),(\d+)-(\d+)", str)[0]
-    return ((int(l0), int(l1)), (int(r0), int(r1)))
+    l0, l1, r0, r1 = [int(x) for x in re.findall(r"\d+", str)]
+    return (l0, l1), (r0, r1)
 
 
 def fully_overlap(range_pair):
