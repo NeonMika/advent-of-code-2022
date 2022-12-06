@@ -49,7 +49,7 @@ def star01(test):
 def star02(test):
     data = Helper.readData(
         day=2,
-        star=-1 if test else 1,
+        star=-2 if test else 2,
         text_converter=lambda text: text.replace(A, R).replace(B, P).replace(C, S).replace(X, LOSE).replace(Y, DRAW).replace(Z, WIN),
         line_converter=lambda line: M2[tuple(line.split())]
     )

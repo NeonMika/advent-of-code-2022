@@ -18,7 +18,7 @@ def star01(test):
 def star02(test):
     data = Helper.readData(
         day=3,
-        star=-1 if test else 1,
+        star=-2 if test else 2,
         line_converter=lambda x: x,
         list_converter=lambda list: [list[i:i+3] for i in range(0, len(list), 3)]
     )
