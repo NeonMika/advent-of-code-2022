@@ -1,8 +1,7 @@
 # create a starting tuple
 import random
 import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
-import base64
+from celluloid import Camera
 
 
 changes = [x for x in [(random.choice([-1, 0, 1]), random.choice([-1, 0, 1])) for _ in range(100)] if x != (0, 0)]
@@ -13,26 +12,22 @@ for i in range(len(changes)-1, 0, -1):
 results = [x := (0, 0), *[x := (x[0]+change[0], x[1]+change[1]) for change in changes]]
 
 fig, ax = plt.subplots()
-lines = ax.plot([], [], color="red", alpha=0.5)
-line = lines[0]
+camera = Camera(fig)
 
+artists = []
 
-def update(num):
-    x = [x[0] for x in results[0:num]]
-    y = [x[1] for x in results[0:num]]
+for i in range(1, len(results)):
+    x = [d[0] for d in results[0:i]]
+    y = [d[1] for d in results[0:i]]
 
-    line.set_data(x, y)
     ax.set_xlim(min(x)-1, max(x)+1)
     ax.set_ylim(min(y)-1, max(y)+1)
 
+    ax.plot(x, y, color="red", alpha=0.5)
+    camera.snap()
 
-step_size = 1
-frames = [*range(1, len(results), step_size)] + [len(results)]
-
-anim = FuncAnimation(fig, update, frames=frames, interval=100, repeat=False)
+animation = camera.animate()
 
 plt.show()
 
-anim.save("./Animations/Walk.gif")
-
-print(results)
+animation.save("./Animations/Walk.gif")
