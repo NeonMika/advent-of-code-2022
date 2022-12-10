@@ -1,20 +1,11 @@
-import matplotlib.pyplot as plt
-from celluloid import Camera
+import itertools
 import numpy as np
 
-# Generate some random data
-num_points = 100
-data = np.random.random((num_points, 2))
+def p(a=1, b=2, c=3, d=4):
+    print(a,b,c,d)
+    return a+b+c+d
 
-# Create a figure and an axes
-fig, ax = plt.subplots()
-camera = Camera(fig)
+g = np.vectorize(p)
+print(g(np.random.rand(3),10))
 
-for i in range(num_points):
-    # Create a scatter plot with one point at each frame
-    points = data[:i+1]
-    artist = ax.scatter(points[:, 0], points[:, 1])
-    camera.snap()
-
-animation = camera.animate()
-animation.save('animation.gif')
+print(np.fromiter(itertools.takewhile(lambda x: x <= 3, [1,2,3,4,5,6,7,8,9,1,1,1]), dtype=int))

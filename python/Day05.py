@@ -35,13 +35,13 @@ def star01(test):
 def star02(test):
     stack_data = Helper.readData(
         day=5,
-        star=-1 if test else 1,
+        star=-2 if test else 2,
         text_converter=lambda text: str.split(text, "\n\n")[0],
         line_converter=lambda line: list(line)[1::4]
     )
     move_data = Helper.readData(
         day=5,
-        star=-1 if test else 1,
+        star=-2 if test else 2,
         text_converter=lambda text: str.split(text, "\n\n")[1],
         line_converter=lambda line: [int(x) for x in re.findall("\d+", line)]
     )

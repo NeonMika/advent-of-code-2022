@@ -13,6 +13,7 @@ def star01(test):
     for entry in data:
         sum_of_priorities += sum({LETTERS.index(ch)+1 for ch in entry[1] if ch in entry[2]})
     print("sum_of_priorities:", sum_of_priorities)
+    print()
 
 
 def star02(test):

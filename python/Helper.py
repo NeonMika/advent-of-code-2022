@@ -1,22 +1,28 @@
 import itertools
+from typing import Callable
 
 
 def readData(day: int,
-             star: int,
-             text_converter=lambda x: x,
-             line_converter=str.split,
-             list_converter=lambda x: x):
-    with open(f'data/{day:02}_{starToNr(star)}.txt') as f:
-        return list_converter([line_converter(x) for x in str.split(text_converter(f.read()), sep='\n')])
+             test: bool | None = None,
+             star: int = 1,
+             text_converter: Callable = lambda x: x,
+             line_converter: Callable = str.split,
+             list_converter: Callable = lambda x: x):
+    try:
+        with open(f'data/{day:02}_{starToNr(test, star)}.txt') as f:
+            return list_converter([line_converter(x) for x in str.split(text_converter(f.read()), sep='\n')])
+    except FileNotFoundError:
+        return list_converter([])
 
 
-def starToNr(star: int):
-    if (star == -1):
-        return 'test01'
-    elif (star == -2):
-        return 'test02'
-    else:
-        return f'{star:02}'
+def starToNr(test: bool | None, star: int):
+    if (test):  # True
+        return f'test{abs(star):02}'
+    else:  # None or False
+        if (star < 0):
+            return f'test{abs(star):02}'
+        else:
+            return f'{star:02}'
 
 
 def empty_line_seperated_groups(data):

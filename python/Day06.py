@@ -25,7 +25,7 @@ def star01(test):
 def star02(test):
     data = Helper.readData(
         day=6,
-        star=-1 if test else 1,
+        star=-2 if test else 2,
         line_converter=lambda line: line,
         list_converter=lambda list: chunked(list[0], 14)
     )
