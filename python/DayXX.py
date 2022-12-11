@@ -1,4 +1,5 @@
 import Helper
+import timeit
 
 
 def star01(test):
@@ -18,22 +19,22 @@ print("|----------------------------------------|")
 print("|--- Test 1 -----------------------------|")
 print("|----------------------------------------|")
 print()
-star01(True)
+print("test1 seconds:", timeit.timeit(lambda: star01(True), number=1))
 print()
 print("|----------------------------------------|")
 print("|--- Star 1 -----------------------------|")
 print("|----------------------------------------|")
 print()
-# star01(False)
+# print("star2 seconds:", timeit.timeit(lambda: star01(False), number=1))
 print()
 print("|----------------------------------------|")
 print("|--- Test 2 -----------------------------|")
 print("|----------------------------------------|")
 print()
-# star02(True)
+# print("test2 seconds:", timeit.timeit(lambda: star02(True), number=1))
 print()
 print("|----------------------------------------|")
 print("|--- Star 2 -----------------------------|")
 print("|----------------------------------------|")
 print()
-# star02(False)
+# print("star2 seconds:", timeit.timeit(lambda: star02(False), number=1))
